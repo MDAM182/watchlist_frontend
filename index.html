@@ -6,6 +6,40 @@
     <script type="text/javascript" src=index.js ></script>
   </head>
   <body>
+    <div class="form-container">
+      <form id="create-program-form" style="">
+
+            <h3>WatchList!</h3>
+
+       <input id='input-title' type="text" name="title" value="" placeholder="Enter title..." class="input-text">
+      <br><br>
+      <textarea id='input-quote' name="favorite_quote" rows="8" cols="80" value="" placeholder="Enter your favorite quote from program..."></textarea>
+      <br><br>
+      <input id='input-url' type="text" name="image" value="" placeholder="Enter poster art for program image URL..." class="input-text">
+      <br><br>
+
+      <select id="media_type" name="media_type">
+        <option value="Film">Film</option>
+        <option value="TV">TV</option>
+      </select>
+
+        <select id="genres" name="genres">
+          <option value="1">Comedy</option>
+          <option value="2">Sci-Fi</option>
+          <option value="3">Action</option>
+          <option value="4">Horror</option>
+          <option value="5">Drama</option>
+          <option value="6">Fantasy</option>
+        </select>
+        <br><br>
+
+  <input id= 'create-button' type="submit" name="submit" value="Create New Program" class="submit">
+  <br><br>
+
+</form>
+
+</div>
+  <h2>My List</h2>
     <div id="program-container">
 
     </div>
