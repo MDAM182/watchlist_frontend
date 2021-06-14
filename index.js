@@ -12,22 +12,67 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.json())
     .then(programs => {
       programs.data.forEach(program => {
-          const programMarkup = `
-            <div data-id=${program.id}>
-              <img src=${program.attributes.image_url} height="350" width="250">
-              <h3>${program.attributes.title}</h3>
-              <p>${program.attributes.genre.name}</p>
-              <p>"${program.attributes.favorite_quote}"</p>
-              <p>${program.attributes.media_type}</p>
-              <button data-id=${program.id}>edit</button>
-            </div>
-            <br><br>`;
 
-            document.querySelector('#program-container').innerHTML += programMarkup
+        render(program)
+    //       const programMarkup = `
+    //         <div data-id=${program.id}>
+    //           <img src=${program.attributes.image_url} height="350" width="250">
+    //           <h3>${program.attributes.title}</h3>
+    //           <p>"${program.attributes.favorite_quote}"</p>
+    //           <p>${program.attributes.media_type}</p>
+    //           <p>${program.attributes.genre.name}</p>
+    //           <button data-id=${program.id}>edit</button>
+    //         </div>
+    //         <br><br>`;
+    //
+    //         document.querySelector('#program-container').innerHTML += programMarkup
     })
    })
   }
 
+
+
+function postFetch(title, favorite_quote, image_url, media_type, genre_id ){
+  const bodyData = {title, favorite_quote, image_url, media_type, genre_id}
+  fetch(endPoint, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+  })
+  .then((res) => res.json())
+  .then(program => {
+    console.log(program);
+    const programData = program.data
+    render(programData)
+    // const programMarkup = `
+    //   <div data-id=${program.id}>
+    //     <img src=${programData.attributes.image_url} height="350" width="250">
+    //     <h3>${programData.attributes.title}</h3>
+    //     <p>"${programData.attributes.favorite_quote}"</p>
+    //     <p>${programData.attributes.media_type}</p>
+    //     <p>${programData.attributes.genre.name}</p>
+    //     <button data-id=${programData.id}>edit</button>
+    //   </div>
+    //   <br><br>`;
+    //
+    //   document.querySelector('#program-container').innerHTML += programMarkup;
+  })
+}
+
+function render(program){
+  const programMarkup = `
+          <div data-id=${program.id}>
+            <img src=${program.attributes.image_url} height="350" width="250">
+            <h3>${program.attributes.title}</h3>
+            <p>"${program.attributes.favorite_quote}"</p>
+            <p>${program.attributes.media_type}</p>
+            <p>${program.attributes.genre.name}</p>
+            <button data-id=${program.id}>edit</button>
+          </div>
+          <br><br>`;
+
+          document.querySelector('#program-container').innerHTML += programMarkup
+}
 function createFormHandler(e){
   e.preventDefault()
   const titleInput = document.querySelector('#input-title').value
@@ -40,28 +85,4 @@ function createFormHandler(e){
 
 }
 
-function postFetch(title, favorite_quote, image_url, media_type, genre_id ){
-  const bodyData = {title, favorite_quote, image_url, media_type, genre_id}
-  fetch(endPoint, {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(bodyData)
-  })
-  .then(res => res.json())
-  .then(program => {
-    console.log(program);
-    const programData = program.data
-    const programMarkup = `
-      <div data-id=${program.id}>
-        <img src=${programData.attributes.image_url} height="350" width="250">
-        <h3>${programData.attributes.title}</h3>
-        <p>${programData.attributes.genre.name}</p>
-        <p>"${programData.attributes.favorite_quote}"</p>
-        <p>${programData.attributes.media_type}</p>
-        <button data-id=${programData.id}>edit</button>
-      </div>
-      <br><br>`;
-
-      document.querySelector('#program-container').innerHTML += programMarkup;
-  })
-}
+  // .catch(err => console.log(err))
