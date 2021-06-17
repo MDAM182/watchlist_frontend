@@ -65,14 +65,14 @@ class Program {
      }
      //
 
-     update(title, favorite_quote, image_url, media_type, genre) {
-          this.title = title;
-          this.favorite_quote = favorite_quote;
-          this.image_url = image_url;
-          this.media_type = media_type;
-          this.genre = genre;
-
-      }
+     // update(title, favorite_quote, image_url, media_type, genre) {
+     //      this.title = title;
+     //      this.favorite_quote = favorite_quote;
+     //      this.image_url = image_url;
+     //      this.media_type = media_type;
+     //      this.genre = genre;
+     //
+     //  }
 
 
 }
