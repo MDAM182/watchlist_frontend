@@ -26,14 +26,14 @@ class App {
          .then(updatedProgram =>
            console.log(updatedProgram)
 
-             // const program = Program.findById(updatedProgram.data.id);
-             // program.update(updatedProgram.data.attributes);
-             // document.querySelector('#program-container').innerHTML = '';
-             // Program.all.forEach(program => document.querySelector('#program-container').innerHTML += program.renderProgramCard());
-             // document.querySelector('#update-program').innerHTML = '';
+             // const program = Program.findById(updatedProgram.data.id)
+             // program.update(updatedProgram.data.attributes)
+             // document.querySelector('#program-container').innerHTML = ''
+             // Program.all.forEach(program => document.querySelector('#program-container').innerHTML += program.renderProgramCard())
+             // document.querySelector('#update-program').innerHTML = ''
         )
       })
     }
 
-  
+
 }
