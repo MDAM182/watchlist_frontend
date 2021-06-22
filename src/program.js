@@ -12,17 +12,40 @@ class Program {
 
 
   renderProgramCard(){
+
     return `
 
-        <div data-id=${this.id}>
-          <img src=${this.image_url} height="350" width="250">
-          <h3>${this.title}</h3>
-          <p>"${this.favorite_quote}"</p>
-          <p>${this.media_type}</p>
-          <p>${this.genre.name}</p>
-          <button data-id=${this.id}>Edit</button>
-        </div>
-        <br><br>`
+       <div class="col-md-3">
+         <div class="card mb-3 shadow-sm">
+           <div data-id=${this.id}>
+             <img src=${this.image_url} class="card-img-top" alt="..." >
+            <div class="card-body">
+              <h5 class="card-title">${this.title}</h5>
+              <p class="card-text">"${this.favorite_quote}".</p>
+             <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+               </div>
+                <small class="text-muted">${this.genre.name}</small>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+
+    `
+    // return `
+    //
+    //     <div data-id=${this.id}>
+    //       <img src=${this.image_url} height="350" width="250">
+    //       <h3>${this.title}</h3>
+    //       <p>"${this.favorite_quote}"</p>
+    //       <p>${this.media_type}</p>
+    //       <p>${this.genre.name}</p>
+    //       <button data-id=${this.id}>Edit</button>
+    //     </div>
+    //     <br><br>`
     }
 
     static findById(id) {
